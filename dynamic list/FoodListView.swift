@@ -13,7 +13,7 @@ struct FoodListView: View {
     var body: some View {
         
         NavigationStack{
-            List(foods , id: \.name) { food in
+            List(foods) { food in
                 HStack{
                     Text(food.icon)
                     Text(food.name)
@@ -22,6 +22,12 @@ struct FoodListView: View {
             }
             .toolbar{
                 Button(action: {
+                    let newFood = Food(name: "New", icon: "\(foods.count)", isFavorite: false)
+                    withAnimation {
+                        foods.append(newFood)
+                        
+                    }
+                    
                     
                 }, label: {
                     Label("Add", systemImage: "plus")

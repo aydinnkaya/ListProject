@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct Food{
+struct Food: Identifiable{
+   // var key = UUID()
     var name : String
     var icon : String
     var isFavorite : Bool
+    var id = UUID()
+    
+   /*
+    var id: UUID{
+        return key
+    }
+    */
     
     static func preview() -> [Food]{
         [
